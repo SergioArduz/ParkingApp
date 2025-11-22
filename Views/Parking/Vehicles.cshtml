@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ParkingApp.Models.Vehicle>
+@{
+	ViewData["Title"] = "Vehículos";
+}
+
+
+<div class="d-flex justify-content-between mb-3">
+	<h3 class="fw-bold">🚘 Vehículos Registrados</h3>
+	<a asp-action="CreateVehicle" class="btn btn-primary">Nuevo Vehículo</a>
+</div>
+
+
+<div class="card shadow-sm rounded-4 border-0">
+	<div class="card-body">
+		<table class="table table-hover">
+			<thead class="table-light">
+				<tr>
+					<th>Placa</th>
+					<th>Descripción</th>
+					<th>Fecha Registro</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var v in Model)
+				{
+					<tr>
+						<td class="fw-bold">@v.Plate</td>
+						<td>@(v.Description ?? "-")</td>
+						<td>@v.CreatedAt.ToLocalTime().ToString("g")</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

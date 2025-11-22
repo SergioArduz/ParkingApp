@@ -1,0 +1,26 @@
+﻿@model ParkingApp.Models.ParkingSession
+@{
+	ViewData["Title"] = "Detalles";
+}
+
+
+<div class="container mt-5">
+	<div class="card shadow rounded-4 p-4">
+		<h3 class="mb-3">📄 Detalles de Sesión</h3>
+
+
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item"><strong>Placa:</strong> @Model.Vehicle?.Plate</li>
+			<li class="list-group-item"><strong>Entrada:</strong> @Model.EntryTime.ToLocalTime().ToString("g")</li>
+			<li class="list-group-item"><strong>Salida:</strong> @(Model.ExitTime.HasValue? Model.ExitTime.Value.ToLocalTime().ToString("g") : "-")</li>
+			<li class="list-group-item"><strong>Duración:</strong> @(Model.DurationMinutes?.ToString() ?? "-") min</li>
+			<li class="list-group-item"><strong>Recompensa:</strong> @(Model.Reward ?? "Ninguna")</li>
+			<li class="list-group-item"><strong>Estado:</strong> @Model.Status</li>
+		</ul>
+
+
+		<div class="mt-3 text-end">
+			<a asp-action="Index" class="btn btn-secondary">Volver</a>
+		</div>
+	</div>
+</div>

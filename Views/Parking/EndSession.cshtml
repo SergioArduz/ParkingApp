@@ -1,0 +1,26 @@
+﻿@model ParkingApp.Models.ParkingSession
+@{
+	ViewData["Title"] = "Registrar Salida";
+}
+
+
+<div class="container mt-5">
+	<div class="card shadow rounded-4 p-4 text-center">
+		<h3 class="mb-3">✅ Confirmar Salida</h3>
+
+
+		<p><strong>Placa:</strong> @Model.Vehicle?.Plate</p>
+		<p><strong>Hora de entrada:</strong> @Model.EntryTime.ToLocalTime().ToString("g")</p>
+
+
+		<form asp-action="EndSessionConfirmed" method="post">
+			<input type="hidden" name="id" value="@Model.SessionId" />
+
+
+			<div class="mt-3">
+				<a asp-action="Index" class="btn btn-outline-secondary me-2">Cancelar</a>
+				<button type="submit" class="btn btn-danger">Confirmar salida</button>
+			</div>
+		</form>
+	</div>
+</div>

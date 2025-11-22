@@ -58,7 +58,7 @@ namespace ParkingApp.Data
                 else
                 {
                     // Conexión local si no hay variable de entorno
-                    optionsBuilder.UseNpgsql("Host=localhost;Database=parkingdb;Username=postgres;Password=123456");
+                    optionsBuilder.UseNpgsql("Host=dpg-d4gg1bn5r7bs73b7tal0-a;Database=parkingdb_2bqa;Username=parkingdb_2bqa_user;Password=hrMnrVfWGPDBLtL5mToxdEt8BtBKD1k2");
                 }
             }
         }
